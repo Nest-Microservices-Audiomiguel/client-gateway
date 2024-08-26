@@ -5,6 +5,8 @@ interface EnvVars {
   PORT: number;
   PRODUCTS_MICROSERVICE_HOST: string;
   PRODUCTS_MICROSERVICE_PORT: number;
+  ORDERS_MICROSERVICE_HOST: string;
+  ORDERS_MICROSERVICE_PORT: number;
 }
 
 const envsSchema: joi.ObjectSchema = joi
@@ -12,6 +14,8 @@ const envsSchema: joi.ObjectSchema = joi
     PORT: joi.number().default(3000),
     PRODUCTS_MICROSERVICE_HOST: joi.string().default('localhost'),
     PRODUCTS_MICROSERVICE_PORT: joi.number().default(3001),
+    ORDERS_MICROSERVICE_HOST: joi.string().default('localhost'),
+    ORDERS_MICROSERVICE_PORT: joi.number().default(3002),
   })
   .unknown(true);
 
@@ -27,4 +31,6 @@ export const envs = {
   port: envVars.PORT,
   productsMicroServiceHost: envVars.PRODUCTS_MICROSERVICE_HOST,
   productsMicroServicePort: envVars.PRODUCTS_MICROSERVICE_PORT,
+  ordersMicroServiceHost: envVars.ORDERS_MICROSERVICE_HOST,
+  ordersMicroServicePort: envVars.ORDERS_MICROSERVICE_PORT,
 };
